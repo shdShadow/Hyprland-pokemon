@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Funzione per leggere il tema dal file
+read_theme() {
+    theme_file="$HOME/.config/hypr/theme.txt"
+    if [ -f "$theme_file" ]; then
+        theme=$(<"$theme_file")
+        echo "$theme"
+    else
+        echo "Errore: Il file del tema non esiste o non è accessibile."
+        exit 1
+    fi
+}
+
+# Funzione principale
+kitty_exec() {
+    # Leggi il tema dal file
+    theme=$(read_theme)
+    
+    # Costruisci il percorso del file di configurazione di Kitty
+    kitty_config_path="$HOME/.config/kitty/$theme.conf"
+
+    # Esegui il comando kitty
+    kitty --config "$kitty_config_path" &
+}
+
+rofi_exec(){
+    theme=$(read_theme)
+    rofi_path="$HOME/.config/rofi/launchers/$theme/launcher.sh"
+    if [ -x "$rofi_path" ]; then  # Check if the file is executable
+        "$rofi_path"
+    else
+        echo "Error: The file $rofi_path is not executable or does not exist."
+    fi
+}
+
+# Controllo degli argomenti
+if [ "$1" = "--kitty" ]; then
+    kitty_exec
+fi
+
+if [ "$1" = "--rofi" ]; then
+    rofi_exec
+fi
