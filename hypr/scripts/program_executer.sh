@@ -33,7 +33,25 @@ rofi_exec(){
         echo "Error: The file $rofi_path is not executable or does not exist."
     fi
 }
+powermenu_exec(){
+    theme=$(read_theme)
+    powermenu_path="$HOME/.config/rofi/powermenu/$theme/powermenu.sh"
+    if [ -x "$powermenu_path" ]; then  # Check if the file is executable
+        "$powermenu_path"
+    else
+        echo "Error: The file $powermenu_path is not executable or does not exist."
+    fi
+}
 
+wifi_exec(){
+    theme=$(read_theme)
+    wifi_path="$HOME/.config/rofi/wifi/$theme/wifi.sh"
+    if [ -x "$wifi_path" ]; then  # Check if the file is executable
+        "$wifi_path"
+    else
+        echo "Error: The file $wifi_path is not executable or does not exist."
+    fi
+}
 # Controllo degli argomenti
 if [ "$1" = "--kitty" ]; then
     kitty_exec
@@ -42,3 +60,12 @@ fi
 if [ "$1" = "--rofi" ]; then
     rofi_exec
 fi
+
+if [ "$1" = "--powermenu" ]; then
+    powermenu_exec
+fi
+
+if [ "$1" = "--wifi" ]; then
+    wifi_exec
+fi
+
