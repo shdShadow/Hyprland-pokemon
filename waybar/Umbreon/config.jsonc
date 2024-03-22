@@ -1,0 +1,117 @@
+{
+	"layer": "top",
+	"position": "bottom",
+	"height": 30,
+	"modules-left": [
+		"network",
+		"custom/void",
+		"network#net2",
+	],
+	"modules-center": [
+		"hyprland/workspaces",
+	],
+	"modules-right": [
+		"backlight",
+		"backlight/slider",
+		"custom/space",
+		"pulseaudio#sink",
+		"pulseaudio/slider",
+		"custom/space",
+	],
+	"hyprland/workspaces": {
+		"active-only": false,
+		"all-outputs": true,
+		"on-scroll-up": "hyprctl dispatch workspace -1",
+		"on-scroll-down": "hyprctl dispatch workspace +1",
+		"format": "{name}",
+		"on-click": "activate",
+		//"format-icons": {
+		//"urgent": "",
+		//"default": "",
+		//"default": "󰧞",
+		//"sort-by-number": true,
+		"height": 0,
+	},
+	"network": {
+		"interval": 10,
+		"interface": "wlan0",
+		"format": "{ifname}",
+		"format-wifi": " {icon}  <span color='white'>{essid} </span>",
+		"format-ethernet": "󰈀   {ipaddr}/{cidr}",
+		"format-disconnected": "󰤭   disconnected",
+		"max-length": 50,
+		"format-icons": [
+			"󰤯",
+			"󰤟",
+			"󰤢",
+			"󰤥",
+			"󰤨"
+		]
+	},
+	"network#net2": {
+		"interval": 10,
+		"interface": "wlan0",
+		"format": "<span color='#cc6132'></span>{bandwidthDownBytes:>} <span color='#cc6132'> </span>{bandwidthUpBytes:>}"
+	},
+	"custom/void": {
+		"format": "<span color='#edd28e'>  󰇙 </span>"
+	},
+	"custom/space": {
+		"format": "<span>  </span>"
+	},
+	"pulseaudio/slider": {
+		"min": 0,
+		"max": 100,
+		"orientation": "horizontal"
+	},
+	"pulseaudio#sink": {
+		"format": "{icon}",
+		"format-bluetooth": "{icon}",
+		"format-muted": "󰝟",
+		"format-icons": {
+			"headphone": "󰋋",
+			"hands-free": "󱡏",
+			"headset": "󰋎",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"󰖀",
+				"󰕾"
+			]
+		},
+		"ignored-sinks": [
+			"Easy Effects Sink"
+		],
+		"smooth-scrolling-threshold": "4",
+		"scroll-step": "5",
+		"on-click-middle": "pactl set-default-sink $(pactl list short sinks | awk '{print $2}' | sed '/easyeffects_sink/d' | sed \"/$(pactl get-default-sink)/d\" | tofi --prompt-text \" \" --height 118 --width 480 --anchor bottom-right --margin-right 80 --margin-bottom 50 --auto-accept-single true )",
+		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-click": "pkill pavucontrol ; pavucontrol",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 2.0",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 2.0"
+	},
+	"backlight/slider": {
+		"min": 0,
+		"max": 100,
+		"orientation": "horizontal",
+		"device": "amdgpu_bl1"
+	},
+	"backlight": {
+		"device": "amdgpu_bl1",
+		"format": "{icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+}
