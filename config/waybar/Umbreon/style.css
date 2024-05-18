@@ -1,0 +1,96 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#waybar {
+	background-color: #141414;
+	font-family: "JetBrainsMono Nerd Font";
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	opacity: 0.8;
+}
+
+#workspaces {
+	background-color: #2b2a2a;
+	border: 1px solid #2b2a2a;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#workspaces button {
+	border: none;
+	background-color: transparent;
+	color: grey;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-left: 3px;
+}
+
+#workspaces button.active {
+	color: #edd28e;
+	border-bottom: 2px solid #edd28e;
+	padding-bottom: 0;
+}
+
+#network {
+	background-color: #2b2a2a;
+	border: 1px solid #2b2a2a;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 8px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+#pulseaudio-slider slider {
+	min-height: 0px;
+	min-width: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+	min-height: 3px;
+	min-width: 90px;
+	border-radius: 3px;
+	background-color: grey;
+}
+
+#pulseaudio-slider highlight {
+	min-width: 10px;
+	border-radius: 5px;
+	background-color: #edd28e;
+}
+
+#pulseaudio.sink {
+	padding-right: 10px;
+}
+
+#backlight-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#backlight-slider trough {
+    min-height: 3px;
+    min-width: 90px;
+    border-radius: 3px;
+    background-color: grey;
+}
+#backlight-slider highlight {
+    min-width: 10px;
+    border-radius: 3px;
+    background-color: #edd28e;
+}
+
+#backlight{
+	padding-right: 10px;
+}
+

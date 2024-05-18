@@ -1,0 +1,66 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": [
+		"custom/spotify",
+		"custom/progress",
+		"tray"
+	],
+	"modules-right": [
+		"temperature",
+		"custom/void",
+		"memory",
+		"cpu"
+	],
+	"modules-center": [
+		"clock",
+		"upower",
+		"clock#date"
+	],
+	"clock": {
+		"interval": 60,
+		"format": "<span color='#edd28e'> </span>{:%I:%M %p}",
+		"max-length": 25
+	},
+	"clock#date": {
+		"format": "<span color='#edd28e'> </span> {:%e %B}",
+	},
+	"custom/spotify": {
+		"exec": "/usr/bin/python3 /home/kage/.config/waybar/scripts/mediaplayer.py --player spotify",
+		"format": "{}  ",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"max-length": 30,
+	},
+	"custom/progress": {
+		"format": "{}",
+		"exec": "/usr/bin/python3 /home/kage/.config/waybar/scripts/progress.py",
+		"return-type": "json",
+		"interval": 1
+	},
+	"temperature": {
+		"interval": 15,
+		// "thermal-zone": 2,
+		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		// "critical-threshold": 80,
+		// "format-critical": "{temperatureC}°C ",
+		"format": "<span color='#edd28e'> </span>{temperatureC}°C"
+	},
+	"memory": {
+		"interval": 15,
+		"format": "<span color='#edd28e'>  </span> {used} GB"
+	},
+	"custom/void": {
+		"format": "<span color='#edd28e'>  󰇙 </span>"
+	},
+	"cpu": {
+		"interval": 15,
+		"format": "<span color='#edd28e'>  </span> {usage}%"
+	},
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10
+	}
+}

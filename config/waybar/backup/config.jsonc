@@ -1,0 +1,136 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": [
+		"clock",
+		"hyprland/workspaces",
+		"tray"
+	],
+	"modules-center": [
+		"custom/spotify",
+		"custom/progress"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"backlight",
+		"network",
+		"battery",
+		"cpu",
+	],
+	"hyprland/workspaces": {
+		"active-only": false,
+		"all-outputs": true,
+		"on-scroll-up": "hyprctl dispatch workspace -1",
+		"on-scroll-down": "hyprctl dispatch workspace +1",
+		"format": "{icon}",
+		"on-click": "activate",
+		"format-icons": {
+			"urgent": "",
+			"default": "",
+			//"default": "󰧞",
+			"sort-by-number": true,
+		},
+	},
+	"clock": {
+		"format": "<span> </span>{:%I:%M %p}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"battery": {
+		"bat": "BAT0",
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+		"max-length": 25,
+	},
+	"cpu": {
+		"format": "{usage}% ",
+		"tooltip": false,
+		"interval": 5,
+		"states": {
+			"warning": 50,
+			"critical": 80,
+		}
+	},
+	"network": {
+		"interval": 5,
+		"format": "{bandwidthDownBytes:>} <span color='#cc6132'>↓</span>{bandwidthUpBytes:>} <span color='#cc6132'>↑</span>",
+		"format-disconnected": "Disconnected ⚠",
+		"tooltip-format": "{essid}: {ipaddr}/{cidr}",
+		"on-click-right": "/home/kage/.config/rofi/wifi-applet/Umbreon/rofi-network-manager.sh"
+	},
+	"pulseaudio": {
+		"scroll-step": 1,
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "<span color='white'>{volume}%</span> {icon} ",
+		"format-muted": "",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"on-click-right": "pavucontrol",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"ignored-sinks": [
+			"JamesDSP Sink"
+		]
+	},
+	"backlight": {
+		"device": "amdgpu_bl2",
+		"format": "{percent}% {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+	"custom/spotify": {
+		"exec": "/usr/bin/python3 /home/kage/.config/waybar/scripts/mediaplayer.py --player spotify",
+		"format": "{}  ",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"max-length": 30,
+	},
+	"custom/progress": {
+		"format": "{}",
+		"exec": "/usr/bin/python3 /home/kage/.config/waybar/scripts/progress.py",
+		"return-type": "json",
+		"interval": 1
+	},
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10,
+	},
+	"custom/powers":{
+		"format": "⏻",
+		"on-click" : "/home/kage/.config/rofi/powermenu/Umbreon/powermenu.sh",
+	}
+},

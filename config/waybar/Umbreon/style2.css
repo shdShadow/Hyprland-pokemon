@@ -1,0 +1,114 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#waybar {
+	background-color: #141414;
+	font-family: "JetBrainsMono Nerd Font";
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	opacity: 0.8;
+}
+
+#clock{
+	background-color: #2b2a2a;
+	color: white;
+	padding-left: 15px;
+	padding-right: 8px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 2px;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+#upower{
+	background-color: #2b2a2a;
+	color: #edd28e;
+	background-color: #2b2a2a;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#clock.date{
+	background-color: #2b2a2a;
+	color: white;
+	padding-left: 15px;
+	padding-right: 8px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left:2px;
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.custom-progress{
+	background-color: #2b2a2a;
+	color: #edd28e;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 4px;
+	margin-right: 2px;
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.custom-spotify{
+	background-color: #2b2a2a;
+	color: #edd28e;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 2px;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+#temperature{
+	color: white;
+}
+#memory{
+	color: white;
+	background-color: #2b2a2a;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	padding-left: 2px;
+	padding-right: 5px;
+}
+
+#cpu{
+	color: white;
+	background-color: #2b2a2a;
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	padding-right: 8px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 4px;
+	margin-right: 8px;
+}
+
+#tray{
+	background-color: #2b2a2a;
+	color: #edd28e;
+	border-radius: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 8px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	
+}
